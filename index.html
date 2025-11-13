@@ -11,297 +11,644 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background-attachment: fixed;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 32, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
 
-        header {
-            margin-bottom: 60px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .profile-section {
+        nav ul {
+            list-style: none;
             display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            margin-bottom: 30px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4fc3f7;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #4fc3f7;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            padding: 60px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .profile-image {
-            flex-shrink: 0;
-        }
-
-        .profile-image img {
             width: 200px;
             height: 200px;
             border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 5px solid rgba(79, 195, 247, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(79, 195, 247, 0.4);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 3px solid #f0f0f0;
         }
 
-        .profile-info h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .profile-info .title {
-            font-size: 1.2em;
-            color: #666;
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #ffffff;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .profile-info .affiliation {
-            color: #0066cc;
-            margin-bottom: 20px;
+        .subtitle {
+            font-size: 1.3em;
+            color: #4fc3f7;
+            margin-bottom: 10px;
         }
 
-        .contact-links {
+        .affiliation {
+            font-size: 1.1em;
+            color: #b0bec5;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
             display: flex;
+            justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
         }
 
-        .contact-links a {
-            color: #0066cc;
+        .social-links a {
+            color: #4fc3f7;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            padding: 10px 20px;
+            border: 2px solid #4fc3f7;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
         }
 
-        .contact-links a:hover {
-            text-decoration: underline;
+        .social-links a:hover {
+            background: #4fc3f7;
+            color: #0f2027;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
         }
 
+        /* Section Styling */
         section {
-            margin-bottom: 50px;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h2 {
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            font-weight: 600;
-            color: #222;
+            font-size: 2.2em;
+            color: #ffffff;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #4fc3f7;
+            display: inline-block;
         }
 
-        .bio {
-            font-size: 1.05em;
+        /* About Section */
+        .about-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-content p {
+            font-size: 1.1em;
             line-height: 1.8;
-            color: #444;
+            margin-bottom: 20px;
+            color: #e0e0e0;
         }
 
-        .research-interests {
+        .interests {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 25px;
         }
 
         .interest-tag {
-            background: #f5f5f5;
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(79, 195, 247, 0.1));
+            padding: 10px 20px;
+            border-radius: 25px;
             font-size: 0.95em;
-            color: #555;
+            color: #4fc3f7;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .publication {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #f0f0f0;
+        .interest-tag:hover {
+            background: rgba(79, 195, 247, 0.3);
+            transform: translateY(-2px);
         }
 
-        .publication:last-child {
-            border-bottom: none;
+        /* Timeline Cards */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
         }
 
-        .publication h3 {
-            font-size: 1.15em;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #222;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #4fc3f7, #2c5364);
         }
 
-        .publication .authors {
-            color: #666;
-            margin-bottom: 8px;
-            font-size: 0.95em;
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .publication .venue {
-            color: #888;
-            font-style: italic;
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 40px rgba(79, 195, 247, 0.2);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #4fc3f7;
+            border: 3px solid #0f2027;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.4em;
+            color: #4fc3f7;
             margin-bottom: 10px;
-            font-size: 0.9em;
         }
 
-        .publication .links {
+        .timeline-item .period {
+            color: #b0bec5;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .timeline-item p {
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        /* Publications */
+        .publication-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(79, 195, 247, 0.2);
+            border-color: rgba(79, 195, 247, 0.3);
+        }
+
+        .publication-card h3 {
+            font-size: 1.25em;
+            color: #4fc3f7;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .publication-card h3 a {
+            color: #4fc3f7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-card h3 a:hover {
+            color: #80d8ff;
+            text-decoration: underline;
+        }
+
+        .publication-card .authors {
+            color: #b0bec5;
+            margin-bottom: 10px;
+            font-size: 0.98em;
+        }
+
+        .publication-card .authors strong {
+            color: #ffffff;
+        }
+
+        .publication-card .year {
+            color: #90a4ae;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .publication-links {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
 
-        .publication .links a {
-            color: #0066cc;
+        .publication-links a {
+            color: #4fc3f7;
             text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #4fc3f7;
+            border-radius: 20px;
             font-size: 0.9em;
+            transition: all 0.3s ease;
         }
 
-        .publication .links a:hover {
+        .publication-links a:hover {
+            background: #4fc3f7;
+            color: #0f2027;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .contact-info a {
+            color: #4fc3f7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #80d8ff;
             text-decoration: underline;
         }
 
-        .news-item {
-            margin-bottom: 20px;
-            padding-left: 20px;
-            border-left: 3px solid #0066cc;
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #b0bec5;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .news-item .date {
-            color: #888;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .profile-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            h1 {
+                font-size: 2.2em;
             }
 
-            .profile-image img {
+            nav ul li {
+                margin: 5px 15px;
+            }
+
+            nav ul li a {
+                font-size: 0.9em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                left: -37px;
+            }
+
+            .profile-image {
                 width: 150px;
                 height: 150px;
-            }
-
-            .profile-info h1 {
-                font-size: 2em;
-            }
-
-            .contact-links {
-                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="https://imgur.com/a/GsQDydO.jpg" alt="Muyombano Happy Axel">
-                </div>
-                <div class="profile-info">
-                    <h1>Muyombano Happy Axel</h1>
-                    <div class="title">Research Assistant | MSc in Embedded Computer Systems</div>
-                    <div class="affiliation">Transformative Artificial Intelligence Research and Innovation Lab<br>University of Rwanda, Kigali</div>
-                    <div class="contact-links">
-                        <a href="mailto:muyombanohappy@gmail.com">Email</a>
-                        <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">LinkedIn</a>
-                        <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">ResearchGate</a>
-                        <a href="#"> GitHub</a>
-                        <a href="tel:+250792437462"> Contact</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#experience" class="nav-link">Work Experience</a></li>
+            <li><a href="#publications" class="nav-link">Publications</a></li>
+            <li><a href="#teaching" class="nav-link">Teaching</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
 
-        <section class="about">
+    <div class="container">
+        <section id="home" class="header-section">
+            <div class="profile-image">
+                <img src="profile-photo.jpg" alt="Muyombano Happy Axel">
+            </div>
+            <h1>Muyombano Happy Axel</h1>
+            <div class="subtitle">Research Assistant | MSc in Embedded Computer Systems</div>
+            <div class="affiliation">
+                Transformative Artificial Intelligence Research and Innovation Lab<br>
+                University of Rwanda, Kigali
+            </div>
+            <div class="social-links">
+                <a href="mailto:muyombanohappy@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">LinkedIn</a>
+                <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">ResearchGate</a>
+                <a href="#" target="_blank">GitHub</a>
+                <a href="tel:+250792437462">Contact</a>
+            </div>
+        </section>
+
+        <section id="about">
             <h2>About</h2>
-            <div class="bio">
+            <div class="about-content">
                 <p>I am a Research Assistant at the Transformative Artificial Intelligence Research and Innovation Lab at the University of Rwanda, where I am also pursuing my MSc in Embedded Computer Systems with concentrations in Artificial Intelligence and Internet of Things.</p>
                 <p>I am passionate about technology-driven impact on social lives. With over 4 years of diverse experience through internships, volunteering, and engineering roles, I bring a combination of technical knowledge, project management, and business analysis skills. I also serve as Managing Director at Ampere Vision Rwanda Ltd, focusing on AI solutions and product development.</p>
                 <p>My work includes developing AI-powered solutions for social impact, such as "Shisha Mwana" - an AI mobile-based malnutrition early detection and prevention system in collaboration with NCST & RBC.</p>
-            </div>
-            <div class="research-interests">
-                <div class="interest-tag">Artificial Intelligence</div>
-                <div class="interest-tag">Machine Learning</div>
-                <div class="interest-tag">Internet of Things</div>
-                <div class="interest-tag">Computer Vision</div>
-                <div class="interest-tag">Embedded Systems</div>
-                <div class="interest-tag">Power Systems</div>
-            </div>
-        </section>
-
-        <section class="news">
-            <h2>News</h2>
-            <div class="news-item">
-                <div class="date">November 2024</div>
-                <div>Started position as Machine Learning Engineer at DunavNET, working on YOLOv8 object detection algorithms.</div>
-            </div>
-            <div class="news-item">
-                <div class="date">January 2024</div>
-                <div>Began MSc in Embedded Computer Systems at University of Rwanda.</div>
-            </div>
-            <div class="news-item">
-                <div class="date">December 2023</div>
-                <div>Launched "Shisha Mwana" project - AI mobile-based malnutrition early detection system in collaboration with NCST & RBC.</div>
-            </div>
-            <div class="news-item">
-                <div class="date">March 2023</div>
-                <div>Joined Transformative AI Research and Innovation Lab at University of Rwanda as Research Assistant.</div>
+                <div class="interests">
+                    <div class="interest-tag">Artificial Intelligence</div>
+                    <div class="interest-tag">Machine Learning</div>
+                    <div class="interest-tag">Internet of Things</div>
+                    <div class="interest-tag">Computer Vision</div>
+                    <div class="interest-tag">Embedded Systems</div>
+                    <div class="interest-tag">Power Systems</div>
+                </div>
             </div>
         </section>
 
-        <section class="publications">
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>MSc in Embedded Computer Systems</h3>
+                    <div class="period">January 2024 - Present</div>
+                    <p>University of Rwanda, Kigali</p>
+                    <p>Concentrations: Artificial Intelligence, Internet of Things</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>BSc in Electrical and Electronics Engineering</h3>
+                    <div class="period">Completed 2023</div>
+                    <p>University of Rwanda, Kigali</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Machine Learning Engineer</h3>
+                    <div class="period">November 2024 - Present</div>
+                    <p>DunavNET</p>
+                    <p>Working on YOLOv8 object detection algorithms and implementing advanced ML solutions.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Managing Director</h3>
+                    <div class="period">2023 - Present</div>
+                    <p>Ampere Vision Rwanda Ltd</p>
+                    <p>Leading AI solutions development and product management initiatives.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Research Assistant</h3>
+                    <div class="period">March 2023 - Present</div>
+                    <p>Transformative AI Research and Innovation Lab, University of Rwanda</p>
+                    <p>Conducting research in AI, machine learning, and embedded systems with focus on social impact applications.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>AI Project Lead - "Shisha Mwana"</h3>
+                    <div class="period">December 2023 - Present</div>
+                    <p>NCST & RBC Collaboration</p>
+                    <p>Leading development of AI mobile-based malnutrition early detection and prevention system.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
             <h2>Publications</h2>
             
-            <div class="publication">
-                <h3>Design and Simulation of Advanced Patch Antenna and Analysis using High-Frequency Structural Simulator (HFSS)</h3>
+            <div class="publication-card">
+                <h3><a href="#" target="_blank">Design and Simulation of Advanced Patch Antenna and Analysis using High-Frequency Structural Simulator (HFSS)</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
-                <div class="venue">Published 2024</div>
-                <div class="links">
-                    <a href="#">[Paper]</a>
+                <div class="year">2024</div>
+                <div class="publication-links">
+                    <a href="#" target="_blank">Paper</a>
+                    <a href="#" target="_blank">Code</a>
+                    <a href="#" target="_blank">Slides</a>
                 </div>
             </div>
 
-            <div class="publication">
-                <h3>Intelligent Power Factor Correction: Leveraging IoT and AI for Enhanced Energy Efficiency</h3>
+            <div class="publication-card">
+                <h3><a href="#" target="_blank">Intelligent Power Factor Correction: Leveraging IoT and AI for Enhanced Energy Efficiency</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
-                <div class="venue">Published 2024</div>
-                <div class="links">
-                    <a href="#">[Paper]</a>
+                <div class="year">2024</div>
+                <div class="publication-links">
+                    <a href="#" target="_blank">Paper</a>
+                    <a href="#" target="_blank">Code</a>
+                    <a href="#" target="_blank">Slides</a>
                 </div>
             </div>
 
-            <div class="publication">
-                <h3>Predictive Modeling for Heart Attack Detection in Rwanda: A Comprehensive Analysis Using R Programming Machine Learning Models</h3>
+            <div class="publication-card">
+                <h3><a href="#" target="_blank">Predictive modeling for heart attack detection in Rwanda: A comprehensive analysis using R programming machine learning models</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
-                <div class="venue">Published 2024</div>
-                <div class="links">
-                    <a href="#">[Paper]</a>
+                <div class="year">2024</div>
+                <div class="publication-links">
+                    <a href="#" target="_blank">Paper</a>
+                    <a href="#" target="_blank">Code</a>
+                    <a href="#" target="_blank">Slides</a>
                 </div>
             </div>
 
-            <div class="publication">
-                <h3>Environmental Monitoring in Industry: Leveraging AI and IoT for Sustainable Solutions</h3>
+            <div class="publication-card">
+                <h3><a href="#" target="_blank">Environmental Monitoring in Industry: Leveraging AI and IoT for Sustainable Solutions</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
-                <div class="venue">Published 2024</div>
-                <div class="links">
-                    <a href="#">[Paper]</a>
+                <div class="year">2024</div>
+                <div class="publication-links">
+                    <a href="#" target="_blank">Paper</a>
+                    <a href="#" target="_blank">Code</a>
+                    <a href="#" target="_blank">Slides</a>
                 </div>
             </div>
         </section>
 
-        <section class="teaching">
+        <section id="teaching">
             <h2>Teaching</h2>
-            <div class="bio">
-                <p><strong>Teaching Assistant</strong> - Course Name (Fall 2025)</p>
-                <p><strong>Teaching Assistant</strong> - Another Course (Spring 2024)</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Teaching Assistant</h3>
+                    <div class="period">Fall 2025</div>
+                    <p>Course Name - University of Rwanda</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Teaching Assistant</h3>
+                    <div class="period">Spring 2024</div>
+                    <p>Another Course - University of Rwanda</p>
+                </div>
             </div>
         </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:muyombanohappy@gmail.com">muyombanohappy@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+250792437462">+250 792 437 462</a></p>
+                <p><strong>Location:</strong> Kigali, Rwanda</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">linkedin.com/in/muyombano-happy</a></p>
+                <p><strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">researchgate.net/profile/Muyombano-Axel</a></p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Muyombano Happy Axel. All rights reserved.</p>
+        </footer>
     </div>
+
+    <script>
+        // Smooth scroll animation for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Active navigation link
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
