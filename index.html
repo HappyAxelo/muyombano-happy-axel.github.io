@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muyombano Happy Axel</title>
+    <link rel="icon" type="image/png" href="Photo-logo.png">
     <style>
         * {
             margin: 0;
@@ -32,24 +33,14 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            padding: 10px 30px;
-        }
-
-        .logo {
-            margin-right: auto;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
         }
 
         nav ul {
             list-style: none;
             display: flex;
+            justify-content: center;
             align-items: center;
+            padding: 20px 0;
             flex-wrap: wrap;
         }
 
@@ -444,11 +435,6 @@
                 padding: 15px;
             }
 
-            .logo {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-
             nav ul li {
                 margin: 5px 15px;
             }
@@ -482,16 +468,13 @@
 </head>
 <body>
     <nav>
-        <div class="logo">
-            <img src="Photo-logo.png" alt="Logo">
-        </div>
         <ul>
             <li><a href="#home" class="nav-link active">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#highlights" class="nav-link">Highlights</a></li>
             <li><a href="#education" class="nav-link">Education</a></li>
             <li><a href="#experience" class="nav-link">Work Experience</a></li>
             <li><a href="#publications" class="nav-link">Publications</a></li>
-            <li><a href="#highlights" class="nav-link">Highlights</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
@@ -529,6 +512,54 @@
                     <div class="interest-tag">Computer Vision</div>
                     <div class="interest-tag">Embedded Systems</div>
                     <div class="interest-tag">Power Systems</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="highlights">
+            <h2>Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <img src="IEEE-MTTS.jpg" alt="IEEE MTTS at CMU" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>IEEE MTTS at CMU</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="Masters-graduation.jpg" alt="Graduating my master's degree" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Graduating my master's degree</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="Exhibition.jpg" alt="Exhibition of our innovation" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Exhibition of our innovation</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="highlight4.jpg" alt="Highlight 4" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 4</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="highlight5.jpg" alt="Highlight 5" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 5</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="highlight6.jpg" alt="Highlight 6" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 6</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -574,7 +605,7 @@
                 </div>
                 <div class="timeline-item">
                     <h3>Research Assistant</h3>
-                    <div class="period">March 2023 - Present</div>
+                    <div class="period">May 2023 - Present</div>
                     <p>Transformative AI Research and Innovation Lab, University of Rwanda</p>
                     <p>Conducting research in AI, machine learning, and embedded systems with focus on social impact applications.</p>
                 </div>
@@ -587,7 +618,25 @@
             </div>
         </section>
 
-        <section id="publications">
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>MSc in Embedded Computer Systems</h3>
+                    <div class="period">January 2024 - October 2024</div>
+                    <p>University of Rwanda, Kigali</p>
+                    <p>Concentrations: Artificial Intelligence, Internet of Things</p>
+                    <p><strong>Graduated: October 17, 2024</strong></p>
+                </div>
+                <div class="timeline-item">
+                    <h3>BSc in Electrical and Electronics Engineering</h3>
+                    <div class="period">Completed 2023</div>
+                    <p>University of Rwanda, Kigali</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
             <h2>Publications</h2>
             
             <div class="publication-card">
@@ -621,55 +670,7 @@
             </div>
         </section>
 
-        <section id="highlights">
-            <h2>Highlights</h2>
-            <div class="highlights-grid">
-                <div class="highlight-card">
-                    <img src="highlight1.jpg" alt="Highlight 1" class="highlight-image">
-                    <div class="highlight-content">
-                        <h3>Event Title 1</h3>
-                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <img src="highlight2.jpg" alt="Highlight 2" class="highlight-image">
-                    <div class="highlight-content">
-                        <h3>Event Title 2</h3>
-                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <img src="highlight3.jpg" alt="Highlight 3" class="highlight-image">
-                    <div class="highlight-content">
-                        <h3>Event Title 3</h3>
-                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <img src="highlight4.jpg" alt="Highlight 4" class="highlight-image">
-                    <div class="highlight-content">
-                        <h3>Event Title 4</h3>
-                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <img src="highlight5.jpg" alt="Highlight 5" class="highlight-image">
-                    <div class="highlight-content">
-                        <h3>Event Title 5</h3>
-                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <img src="highlight6.jpg" alt="Highlight 6" class="highlight-image">
-                    <div class="highlight-content">
-                        <h3>Event Title 6</h3>
-                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
+        <section id="publications">
             <h2>Contact</h2>
             <div class="contact-info">
                 <p><strong>Email:</strong> <a href="mailto:muyombanohappy@gmail.com">muyombanohappy@gmail.com</a></p>
@@ -681,7 +682,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2024 Muyombano Happy Axel. All rights reserved.</p>
+            <p>&copy; 2025 Muyombano Happy Axel. All rights reserved.</p>
         </footer>
     </div>
 
