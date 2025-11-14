@@ -32,19 +32,29 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            padding: 10px 30px;
+        }
+
+        .logo {
+            margin-right: auto;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 20px 0;
             flex-wrap: wrap;
         }
 
         nav ul li {
-            margin: 0 25px;
+            margin: 0 20px;
         }
 
         nav ul li a {
@@ -341,26 +351,50 @@
             font-size: 0.95em;
         }
 
-        .publication-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+        /* Highlights Section */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        .publication-links a {
-            color: #4fc3f7;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #4fc3f7;
-            border-radius: 20px;
-            font-size: 0.9em;
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
-        .publication-links a:hover {
-            background: #4fc3f7;
-            color: #0f2027;
-            transform: translateY(-2px);
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(79, 195, 247, 0.2);
+            border-color: rgba(79, 195, 247, 0.3);
+        }
+
+        .highlight-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .highlight-content {
+            padding: 25px;
+        }
+
+        .highlight-content h3 {
+            color: #4fc3f7;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .highlight-content p {
+            color: #e0e0e0;
+            line-height: 1.7;
+            font-size: 1em;
         }
 
         /* Contact Section */
@@ -405,6 +439,16 @@
                 font-size: 2.2em;
             }
 
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
             nav ul li {
                 margin: 5px 15px;
             }
@@ -429,18 +473,25 @@
                 width: 150px;
                 height: 150px;
             }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
+        <div class="logo">
+            <img src="Photo-logo.png" alt="Logo">
+        </div>
         <ul>
             <li><a href="#home" class="nav-link active">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#education" class="nav-link">Education</a></li>
             <li><a href="#experience" class="nav-link">Work Experience</a></li>
             <li><a href="#publications" class="nav-link">Publications</a></li>
-            <li><a href="#teaching" class="nav-link">Teaching</a></li>
+            <li><a href="#highlights" class="nav-link">Highlights</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
@@ -468,7 +519,7 @@
         <section id="about">
             <h2>About</h2>
             <div class="about-content">
-                <p>I am a Research Assistant at the Transformative Artificial Intelligence Research and Innovation Lab at the University of Rwanda, where I am also pursuing my MSc in Embedded Computer Systems with concentrations in Artificial Intelligence and Internet of Things.</p>
+                <p>I am a Research Assistant at the Transformative Artificial Intelligence Research and Innovation Lab at the University of Rwanda, where I completed my MSc in Embedded Computer Systems with concentrations in Artificial Intelligence and Internet of Things.</p>
                 <p>I am passionate about technology-driven impact on social lives. With over 4 years of diverse experience through internships, volunteering, and engineering roles, I bring a combination of technical knowledge, project management, and business analysis skills. I also serve as Managing Director at Ampere Vision Rwanda Ltd, focusing on AI solutions and product development.</p>
                 <p>My work includes developing AI-powered solutions for social impact, such as "Shisha Mwana" - an AI mobile-based malnutrition early detection and prevention system in collaboration with NCST & RBC.</p>
                 <div class="interests">
@@ -487,9 +538,10 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <h3>MSc in Embedded Computer Systems</h3>
-                    <div class="period">January 2024 - Present</div>
+                    <div class="period">January 2024 - October 2024</div>
                     <p>University of Rwanda, Kigali</p>
                     <p>Concentrations: Artificial Intelligence, Internet of Things</p>
+                    <p><strong>Graduated: October 17, 2024</strong></p>
                 </div>
                 <div class="timeline-item">
                     <h3>BSc in Electrical and Electronics Engineering</h3>
@@ -502,6 +554,12 @@
         <section id="experience">
             <h2>Work Experience</h2>
             <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Co-Principal Investigator</h3>
+                    <div class="period">November 2024 - Present</div>
+                    <p>NCST Funded Project | University of Rwanda & University of Malawi</p>
+                    <p><strong>Project Title:</strong> AI-Driven Machine Vision for Quality Control and Waste Reduction in Small-Scale Food Processing Manufacturing in Rwanda and Malawi</p>
+                </div>
                 <div class="timeline-item">
                     <h3>Machine Learning Engineer</h3>
                     <div class="period">November 2024 - Present</div>
@@ -522,9 +580,9 @@
                 </div>
                 <div class="timeline-item">
                     <h3>AI Project Lead - "Shisha Mwana"</h3>
-                    <div class="period">December 2023 - Present</div>
+                    <div class="period">December 2023 - October 2024</div>
                     <p>NCST & RBC Collaboration</p>
-                    <p>Leading development of AI mobile-based malnutrition early detection and prevention system.</p>
+                    <p>Led development of AI mobile-based malnutrition early detection and prevention system. <strong>Project Completed.</strong></p>
                 </div>
             </div>
         </section>
@@ -533,62 +591,80 @@
             <h2>Publications</h2>
             
             <div class="publication-card">
-                <h3><a href="#" target="_blank">Design and Simulation of Advanced Patch Antenna and Analysis using High-Frequency Structural Simulator (HFSS)</a></h3>
+                <h3><a href="https://ieeexplore.ieee.org/document/11024602" target="_blank">Design, Simulation, and Analysis of Advanced Patch Antenna Using High-Frequency Structural Simulator (HFSS)</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
                 <div class="year">2024</div>
-                <div class="publication-links">
-                    <a href="#" target="_blank">Paper</a>
-                    <a href="#" target="_blank">Code</a>
-                    <a href="#" target="_blank">Slides</a>
-                </div>
             </div>
 
             <div class="publication-card">
-                <h3><a href="#" target="_blank">Intelligent Power Factor Correction: Leveraging IoT and AI for Enhanced Energy Efficiency</a></h3>
+                <h3><a href="https://ijnrd.org/viewpaperforall.php?paper=IJNRD2409022" target="_blank">Intelligent Power Factor Correction: Leveraging IoT and AI for Enhanced Energy Efficiency</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
                 <div class="year">2024</div>
-                <div class="publication-links">
-                    <a href="#" target="_blank">Paper</a>
-                    <a href="#" target="_blank">Code</a>
-                    <a href="#" target="_blank">Slides</a>
-                </div>
             </div>
 
             <div class="publication-card">
-                <h3><a href="#" target="_blank">Predictive modeling for heart attack detection in Rwanda: A comprehensive analysis using R programming machine learning models</a></h3>
+                <h3><a href="https://www.researchgate.net/publication/385848737_Predictive_modeling_for_heart_attack_detection_in_Rwanda_A_comprehensive_analysis_using_R_programming_machine_learning_models" target="_blank">Predictive modeling for heart attack detection in Rwanda: A comprehensive analysis using R programming machine learning models</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
                 <div class="year">2024</div>
-                <div class="publication-links">
-                    <a href="#" target="_blank">Paper</a>
-                    <a href="#" target="_blank">Code</a>
-                    <a href="#" target="_blank">Slides</a>
-                </div>
             </div>
 
             <div class="publication-card">
-                <h3><a href="#" target="_blank">Environmental Monitoring in Industry: Leveraging AI and IoT for Sustainable Solutions</a></h3>
+                <h3><a href="https://www.researchgate.net/publication/385848651_Environmental_Monitoring_in_Industry_Leveraging_AI_and_IoT_for_Sustainable_Solutions" target="_blank">Environmental Monitoring in Industry: Leveraging AI and IoT for Sustainable Solutions</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
                 <div class="year">2024</div>
-                <div class="publication-links">
-                    <a href="#" target="_blank">Paper</a>
-                    <a href="#" target="_blank">Code</a>
-                    <a href="#" target="_blank">Slides</a>
-                </div>
+            </div>
+
+            <div class="publication-card">
+                <h3><a href="https://www.researchsquare.com/article/rs-6828810/v1" target="_blank">Solar Farms and Power Line Inspection using Unmanned Aerial Vehicles</a></h3>
+                <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
+                <div class="year">2024</div>
             </div>
         </section>
 
-        <section id="teaching">
-            <h2>Teaching</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Teaching Assistant</h3>
-                    <div class="period">Fall 2025</div>
-                    <p>Course Name - University of Rwanda</p>
+        <section id="highlights">
+            <h2>Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <img src="highlight1.jpg" alt="Highlight 1" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 1</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Teaching Assistant</h3>
-                    <div class="period">Spring 2024</div>
-                    <p>Another Course - University of Rwanda</p>
+                <div class="highlight-card">
+                    <img src="highlight2.jpg" alt="Highlight 2" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 2</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="highlight3.jpg" alt="Highlight 3" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 3</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="highlight4.jpg" alt="Highlight 4" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 4</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="highlight5.jpg" alt="Highlight 5" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 5</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="highlight6.jpg" alt="Highlight 6" class="highlight-image">
+                    <div class="highlight-content">
+                        <h3>Event Title 6</h3>
+                        <p>Description of the highlight or event. Replace this text with your summary of what happened during this highlight.</p>
+                    </div>
                 </div>
             </div>
         </section>
