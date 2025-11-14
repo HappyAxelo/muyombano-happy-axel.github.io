@@ -358,6 +358,8 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .highlight-card:hover {
@@ -366,10 +368,42 @@
             border-color: rgba(79, 195, 247, 0.3);
         }
 
+        .highlight-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
         .highlight-image {
             width: 100%;
             height: 250px;
             object-fit: cover;
+            position: relative;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .highlight-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: #ffffff;
+            font-size: 0.95em;
+            text-align: center;
+            line-height: 1.6;
         }
 
         .highlight-content {
@@ -386,6 +420,87 @@
             color: #e0e0e0;
             line-height: 1.7;
             font-size: 1em;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            margin: 5% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(79, 195, 247, 0.3);
+        }
+
+        .modal-header {
+            position: relative;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 35px;
+        }
+
+        .modal-body h3 {
+            color: #4fc3f7;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            color: #e0e0e0;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #4fc3f7;
         }
 
         /* Contact Section */
@@ -463,6 +578,27 @@
             .highlights-grid {
                 grid-template-columns: 1fr;
             }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+
+            .modal-image {
+                height: 250px;
+            }
+
+            .modal-body {
+                padding: 25px;
+            }
+
+            .modal-body h3 {
+                font-size: 1.4em;
+            }
+
+            .modal-body p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -494,7 +630,7 @@
                 <a href="mailto:muyombanohappy@gmail.com">Email</a>
                 <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">LinkedIn</a>
                 <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">ResearchGate</a>
-                <a href="#" target="https://github.com/HappyAxelo">GitHub</a>
+                <a href="https://github.com/HappyAxelo" target="_blank">GitHub</a>
                 <a href="tel:+250792437462">Contact</a>
             </div>
         </section>
@@ -519,29 +655,84 @@
         <section id="highlights">
             <h2>Highlights</h2>
             <div class="highlights-grid">
-                <div class="highlight-card">
-                    <img src="IEEE-MTTS.jpg" alt="IEEE MTTS at CMU" class="highlight-image">
+                <div class="highlight-card" onclick="openModal('modal1')">
+                    <div class="highlight-image-container">
+                        <img src="IEEE-MTTS.jpg" alt="IEEE MTTS at CMU" class="highlight-image">
+                        <div class="image-overlay">
+                            <div class="overlay-text">Click to read the full story about the IEEE MTTS event at Carnegie Mellon University Africa</div>
+                        </div>
+                    </div>
                     <div class="highlight-content">
                         <h3>IEEE MTTS at CMU</h3>
-                        <p>The Institute of Electrical and Electronics Engineers (IEEE) Microwave Theory and Technology Society (MTTS) event at Carnegie Mellon University Africa brought together students from this prestigious engineering institution and IEEE communities worldwide to learn, collaborate, and exchange innovative ideas in microwave theory and technology. As the Chairperson of the IEEE Student Branch at the University of Rwanda, I am proud to have been part of the organizing team that contributed to making this event a remarkable success. My sincere appreciation goes to the dedicated team led by Prof. Edwin Mugume for their exceptional leadership and for delivering such an impactful and inspiring event..</p>
+                        <p>The Institute of Electrical and Electronics Engineers (IEEE) Microwave Theory and Technology Society (MTTS) event at Carnegie Mellon University Africa brought together students from this prestigious engineering institution and IEEE communities worldwide...</p>
                     </div>
                 </div>
-                <div class="highlight-card">
-                    <img src="Masters-graduation.jpg" alt="Graduating my master's degree" class="highlight-image">
+                <div class="highlight-card" onclick="openModal('modal2')">
+                    <div class="highlight-image-container">
+                        <img src="Masters-graduation.jpg" alt="Graduating my master's degree" class="highlight-image">
+                        <div class="image-overlay">
+                            <div class="overlay-text">Click to read about my graduation milestone and journey</div>
+                        </div>
+                    </div>
                     <div class="highlight-content">
                         <h3>Graduating my master's degree</h3>
-                        <p>Today marks a proud milestone in my journey as I celebrate my graduation. My deepest gratitude goes to my mother for her unwavering support, love, and encouragement throughout every step. I am also sincerely thankful to the African Centre of Excellence in Internet of Things (ACEIoT) for awarding me the scholarship that made this achievement possible. This moment is a testament to the power of support, opportunity, and perseverance.</p>
+                        <p>On 17th of October 2025, I celebrated a proud milestone in my journey as I graduated with my master's degree. My deepest gratitude goes to my mother for her unwavering support...</p>
                     </div>
                 </div>
-                <div class="highlight-card">
-                    <img src="Exhibition.jpg" alt="Exhibition of our innovation" class="highlight-image">
+                <div class="highlight-card" onclick="openModal('modal3')">
+                    <div class="highlight-image-container">
+                        <img src="Exhibition.jpg" alt="Exhibition of our innovation" class="highlight-image">
+                        <div class="image-overlay">
+                            <div class="overlay-text">Click to learn about showcasing our bird repeller technology in Uganda</div>
+                        </div>
+                    </div>
                     <div class="highlight-content">
                         <h3>Exhibition of our innovation</h3>
-                        <p>I had the honour of exhibiting our bird repeller technology in Uganda during the 1st Regional Ministerial Conference on the East African Common Higher Education Area (EACHEA). It was a privilege to showcase our innovative solutions to Ministers of Education from various East African countries and to contribute to regional conversations on technology and education. My sincere appreciation goes to the University of Rwanda leadership for their guidance and unwavering support throughout this journey.</p>
+                        <p>I had the honour of exhibiting our bird repeller technology in Uganda during the 1st Regional Ministerial Conference on the East African Common Higher Education Area (EACHEA)...</p>
                     </div>
                 </div>
-            
+            </div>
         </section>
+
+        <!-- Modals -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal('modal1')">&times;</span>
+                    <img src="IEEE-MTTS.jpg" alt="IEEE MTTS at CMU" class="modal-image">
+                </div>
+                <div class="modal-body">
+                    <h3>IEEE MTTS at CMU</h3>
+                    <p>The Institute of Electrical and Electronics Engineers (IEEE) Microwave Theory and Technology Society (MTTS) event at Carnegie Mellon University Africa brought together students from this prestigious engineering institution and IEEE communities worldwide to learn, collaborate, and exchange innovative ideas in microwave theory and technology. As the Chairperson of the IEEE Student Branch at the University of Rwanda, I am proud to have been part of the organizing team that contributed to making this event a remarkable success. My sincere appreciation goes to the dedicated team led by Prof. Edwin Mugume for their exceptional leadership and for delivering such an impactful and inspiring event.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal('modal2')">&times;</span>
+                    <img src="Masters-graduation.jpg" alt="Graduating my master's degree" class="modal-image">
+                </div>
+                <div class="modal-body">
+                    <h3>Graduating my master's degree</h3>
+                    <p>On 17th of October 2025, I celebrated a proud milestone in my journey as I graduated with my master's degree. My deepest gratitude goes to my mother for her unwavering support, love, and encouragement throughout every step. I am also sincerely thankful to the African Centre of Excellence in Internet of Things (ACEIoT) for awarding me the scholarship that made this achievement possible. This moment is a testament to the power of support, opportunity, and perseverance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal('modal3')">&times;</span>
+                    <img src="Exhibition.jpg" alt="Exhibition of our innovation" class="modal-image">
+                </div>
+                <div class="modal-body">
+                    <h3>Exhibition of our innovation</h3>
+                    <p>I had the honour of exhibiting our bird repeller technology in Uganda during the 1st Regional Ministerial Conference on the East African Common Higher Education Area (EACHEA). It was a privilege to showcase our innovative solutions to Ministers of Education from various East African countries and to contribute to regional conversations on technology and education. My sincere appreciation goes to the University of Rwanda leadership for their guidance and unwavering support throughout this journey.</p>
+                </div>
+            </div>
+        </div>
 
         <section id="education">
             <h2>Education</h2>
@@ -597,25 +788,7 @@
             </div>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>MSc in Embedded Computer Systems</h3>
-                    <div class="period">January 2024 - October 2024</div>
-                    <p>University of Rwanda, Kigali</p>
-                    <p>Concentrations: Artificial Intelligence, Internet of Things</p>
-                    <p><strong>Graduated: October 17, 2024</strong></p>
-                </div>
-                <div class="timeline-item">
-                    <h3>BSc in Electrical and Electronics Engineering</h3>
-                    <div class="period">Completed 2023</div>
-                    <p>University of Rwanda, Kigali</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
+        <section id="publications">
             <h2>Publications</h2>
             
             <div class="publication-card">
@@ -649,7 +822,7 @@
             </div>
         </section>
 
-        <section id="publications">
+        <section id="contact">
             <h2>Contact</h2>
             <div class="contact-info">
                 <p><strong>Email:</strong> <a href="mailto:muyombanohappy@gmail.com">muyombanohappy@gmail.com</a></p>
@@ -666,6 +839,25 @@
     </div>
 
     <script>
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+
         // Smooth scroll animation for sections
         const observerOptions = {
             threshold: 0.1,
