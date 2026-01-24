@@ -137,6 +137,12 @@
         .affiliation {
             font-size: 1.1em;
             color: #b0bec5;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 1.05em;
+            color: #90a4ae;
             margin-bottom: 25px;
         }
 
@@ -287,6 +293,51 @@
         .timeline-item p {
             color: #e0e0e0;
             line-height: 1.7;
+        }
+
+        /* Certifications Section */
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .certification-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(79, 195, 247, 0.2);
+            border-color: rgba(79, 195, 247, 0.3);
+        }
+
+        .certification-card h3 {
+            font-size: 1.2em;
+            color: #4fc3f7;
+            margin-bottom: 15px;
+        }
+
+        .certification-card a {
+            color: #4fc3f7;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #4fc3f7;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .certification-card a:hover {
+            background: #4fc3f7;
+            color: #0f2027;
         }
 
         /* Publications */
@@ -599,6 +650,10 @@
             .modal-body p {
                 font-size: 1em;
             }
+
+            .certification-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -610,6 +665,7 @@
             <li><a href="#highlights" class="nav-link">Highlights</a></li>
             <li><a href="#education" class="nav-link">Education</a></li>
             <li><a href="#experience" class="nav-link">Work Experience</a></li>
+            <li><a href="#certifications" class="nav-link">Certifications</a></li>
             <li><a href="#publications" class="nav-link">Publications</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -621,11 +677,9 @@
                 <img src="profile-photo.jpg" alt="Muyombano Happy Axel">
             </div>
             <h1>Muyombano Happy Axel</h1>
-            <div class="subtitle">Research Assistant | MSc in Embedded Computer Systems</div>
-            <div class="affiliation">
-                Transformative Artificial Intelligence Research and Innovation Lab<br>
-                University of Rwanda, Kigali
-            </div>
+            <div class="subtitle">Senior Electrical Engineer</div>
+            <div class="affiliation">MSc in Embedded Computer Systems</div>
+            <div class="location">Kigali</div>
             <div class="social-links">
                 <a href="mailto:muyombanohappy@gmail.com">Email</a>
                 <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">LinkedIn</a>
@@ -638,16 +692,18 @@
         <section id="about">
             <h2>About</h2>
             <div class="about-content">
-                <p>I am a Research Assistant at the Transformative Artificial Intelligence Research and Innovation Lab at the University of Rwanda, where I completed my MSc in Embedded Computer Systems with concentrations in Artificial Intelligence and Internet of Things.</p>
-                <p>I am passionate about technology-driven impact on social lives. With over 4 years of diverse experience through internships, volunteering, and engineering roles, I bring a combination of technical knowledge, project management, and business analysis skills. I also serve as Managing Director at Ampere Vision Rwanda Ltd, focusing on AI solutions and product development.</p>
-                <p>My work includes developing AI-powered solutions for social impact, such as "Shisha Mwana" - an AI mobile-based malnutrition early detection and prevention system in collaboration with NCST & RBC.</p>
+                <p>I am an Electrical Engineer at CCC Engineering Ltd, with a Master's degree in Embedded Computing Systems and a Bachelor's degree in Electrical and Electronics Engineering, driven by the use of technology to deliver tangible social and economic impact in critical infrastructure and national development.</p>
+                <p>I have over 5 years of experience across engineering, research, and innovation, combining strong technical capability with project management and stakeholder coordination. I currently lead the electrical team at the Gicumbi Substation construction project, overseeing technical execution, contractor coordination, and compliance with grid and safety standards.</p>
+                <p>I have also led multi-stakeholder technology initiatives, including serving as Project Manager at Ampere Vision Rwanda, where I delivered an operational machine-vision agricultural drone project, and coordinating the establishment of the Transformative AI Research and Innovation Lab at the University of Rwanda, hosting 5 PhD and 5 Master's students working on applied AI solutions.</p>
+                <p>Additionally, I am Co-Principal Investigator on an NCST-funded Rwanda–Malawi project on AI-driven machine vision for quality control and waste reduction, strengthening my experience in cross-border collaboration and results-oriented program delivery.</p>
                 <div class="interests">
+                    <div class="interest-tag">Electrical Engineering</div>
                     <div class="interest-tag">Artificial Intelligence</div>
                     <div class="interest-tag">Machine Learning</div>
-                    <div class="interest-tag">Data Science</div>
                     <div class="interest-tag">Computer Vision</div>
                     <div class="interest-tag">Embedded Systems</div>
                     <div class="interest-tag">Power Systems</div>
+                    <div class="interest-tag">Infrastructure Development</div>
                 </div>
             </div>
         </section>
@@ -756,22 +812,28 @@
             <h2>Work Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
+                    <h3>Senior Electrical Engineer</h3>
+                    <div class="period">November 2025 - Present</div>
+                    <p>CCC Engineering Ltd</p>
+                    <p>Leading the electrical team at the Gicumbi Substation construction project, overseeing technical execution, contractor coordination, and compliance with grid and safety standards.</p>
+                </div>
+                <div class="timeline-item">
                     <h3>Co-Principal Investigator</h3>
                     <div class="period">November 2025 - Present</div>
                     <p>NCST Funded Project | University of Rwanda & University of Malawi</p>
                     <p><strong>Project Title:</strong> AI-Driven Machine Vision for Quality Control and Waste Reduction in Small-Scale Food Processing Manufacturing in Rwanda and Malawi</p>
                 </div>
-             <div class="timeline-item">
-                    <h3>Managing Director</h3>
-                    <div class="period">2023 - Present</div>
+                <div class="timeline-item">
+                    <h3>Project Manager</h3>
+                    <div class="period">January 2023 - Present</div>
                     <p>Ampere Vision Rwanda Ltd</p>
-                    <p>Leading AI solutions development and product management initiatives.</p>
+                    <p>Delivered an operational machine-vision agricultural drone project. Worked closely with the Ministry of Agriculture, Rwanda Biomedical Centre, and Rwanda Civil Aviation Authority to ensure that this 10 Litre sprayer drone can impact agriculture through pesticide spraying and spraying in mosquito breeding grounds.</p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Research Assistant</h3>
-                    <div class="period">May 2025 - Present</div>
+                    <h3>Database Administrator</h3>
+                    <div class="period">January 2024 - October 2025</div>
                     <p>Transformative AI Research and Innovation Lab, University of Rwanda</p>
-                    <p>Conducting research in AI, machine learning, and embedded systems with focus on social impact applications.</p>
+                    <p>Managed database systems and supported research initiatives in AI, machine learning, and embedded systems with focus on social impact applications.</p>
                 </div>
                 <div class="timeline-item">
                     <h3>Protection Systems Intern</h3>
@@ -785,7 +847,31 @@
                     <p>Rwanda Energy Group - Energy Development Corporation Limited</p>
                     <p>Gained hands-on experience in electrical engineering and energy development projects.</p>
                 </div>
-                
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="certification-grid">
+                <div class="certification-card">
+                    <h3>PSS®E Training Certificate</h3>
+                    <p>Training on Power System Modelling and Analysis Using PSS/E</p>
+                </div>
+                <div class="certification-card">
+                    <h3>Drone Pilot License</h3>
+                    <p>Certified drone pilot for commercial operations</p>
+                </div>
+                <div class="certification-card">
+                    <h3>Introduction to Policymaking</h3>
+                    <a href="https://storage.googleapis.com/apolitical-certificates/generated-certificates/6cd5ddb8-c85f-4bd2-b3fe-7a137e5e5504/an-introduction-to-policymaking.pdf" target="_blank">View Certificate</a>
+                </div>
+                <div class="certification-card">
+                    <h3>PLC Ladder Logic Essential Training</h3>
+                    <a href="https://www.linkedin.com/learning/certificates/0f7bf042792cab6bae5abf5b85e603c82ec459098fbc41b61b4c13561995947a?trk=backfilled_certificate" target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </section>
+
         <section id="publications">
             <h2>Publications</h2>
             
