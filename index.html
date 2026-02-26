@@ -358,6 +358,11 @@
             border-color: rgba(79, 195, 247, 0.3);
         }
 
+        .publication-card.featured {
+            border-color: rgba(79, 195, 247, 0.4);
+            background: rgba(79, 195, 247, 0.07);
+        }
+
         .publication-card h3 {
             font-size: 1.25em;
             color: #4fc3f7;
@@ -389,8 +394,24 @@
         .publication-card .year {
             color: #90a4ae;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 0.95em;
+        }
+
+        .publication-card .doi {
+            color: #78909c;
+            font-size: 0.88em;
+            margin-top: 8px;
+        }
+
+        .publication-card .doi a {
+            color: #78909c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-card .doi a:hover {
+            color: #4fc3f7;
         }
 
         /* Highlights Section */
@@ -849,7 +870,14 @@
 
         <section id="publications">
             <h2>Publications</h2>
-            
+
+            <div class="publication-card featured">
+                <h3><a href="https://ieeexplore.ieee.org/document/11387712" target="_blank">Real-Time Deep Learning-Based Aerial System for Targeted Pesticide Spraying, Irrigation and Crop Disease Detection</a></h3>
+                <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
+                <div class="year">2025</div>
+                <div class="doi">DOI: <a href="https://doi.org/10.1109/IMAS66694.2025.11387712" target="_blank">10.1109/IMAS66694.2025.11387712</a></div>
+            </div>
+
             <div class="publication-card">
                 <h3><a href="https://ieeexplore.ieee.org/document/11024602" target="_blank">Design, Simulation, and Analysis of Advanced Patch Antenna Using High-Frequency Structural Simulator (HFSS)</a></h3>
                 <div class="authors"><strong>Muyombano Happy Axel</strong>, et al.</div>
