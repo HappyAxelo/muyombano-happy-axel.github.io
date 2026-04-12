@@ -448,7 +448,8 @@
         .highlight-image {
             width: 100%;
             height: 250px;
-            object-fit: cover;
+            object-fit: contain;
+            background: #0f2027;
             position: relative;
         }
 
@@ -531,7 +532,8 @@
         .modal-image {
             width: 100%;
             height: 400px;
-            object-fit: cover;
+            object-fit: contain;
+            background: #0f2027;
         }
 
         .modal-body {
@@ -702,7 +704,7 @@
             <div class="affiliation">MSc in Embedded Computer Systems, B.Eng Electrical and Electronics Engineering</div>
             <div class="location">Kigali</div>
             <div class="social-links">
-                <a href="mailto:muyombanohappy@gmail.com">Email</a>
+                <a href="/cdn-cgi/l/email-protection#91fce4e8fefcf3f0fffef9f0e1e1e8d1f6fcf0f8fdbff2fefc">Email</a>
                 <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">LinkedIn</a>
                 <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">ResearchGate</a>
                 <a href="https://github.com/HappyAxelo" target="_blank">GitHub</a>
@@ -730,6 +732,18 @@
         <section id="highlights">
             <h2>Highlights</h2>
             <div class="highlights-grid">
+                <div class="highlight-card" onclick="openModal('modal4')">
+                    <div class="highlight-image-container">
+                        <img src="tairi 5.jpeg" alt="Ministerial Visit to TAIRI Lab" class="highlight-image">
+                        <div class="image-overlay">
+                            <div class="overlay-text">Click to read about the Ministerial visit to TAIRI Lab and ACEIoT at the University of Rwanda</div>
+                        </div>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Ministerial Visit to TAIRI Lab</h3>
+                        <p>TAIRI Lab hosted Dr. Diaka Sidibé, Minister of Higher Education of Guinea, who toured ACEIoT and explored student-led AI projects spanning health, environment, and agriculture...</p>
+                    </div>
+                </div>
                 <div class="highlight-card" onclick="openModal('modal1')">
                     <div class="highlight-image-container">
                         <img src="IEEE-MTTS.jpg" alt="IEEE MTTS at CMU" class="highlight-image">
@@ -764,18 +778,6 @@
                     <div class="highlight-content">
                         <h3>Exhibition of our innovation</h3>
                         <p>I had the honour of exhibiting our bird repeller technology in Uganda during the 1st Regional Ministerial Conference on the East African Common Higher Education Area (EACHEA)...</p>
-                    </div>
-                </div>
-                <div class="highlight-card" onclick="openModal('modal4')">
-                    <div class="highlight-image-container">
-                        <img src="tairi 5.jpeg" alt="Ministerial Visit to TAIRI Lab" class="highlight-image">
-                        <div class="image-overlay">
-                            <div class="overlay-text">Click to read about the Ministerial visit to TAIRI Lab and ACEIoT at the University of Rwanda</div>
-                        </div>
-                    </div>
-                    <div class="highlight-content">
-                        <h3>Ministerial Visit to TAIRI Lab</h3>
-                        <p>TAIRI Lab hosted Dr. Diaka Sidibé, Minister of Higher Education of Guinea, who toured ACEIoT and explored student-led AI projects spanning health, environment, and agriculture...</p>
                     </div>
                 </div>
             </div>
@@ -937,7 +939,7 @@
         <section id="contact">
             <h2>Contact</h2>
             <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:muyombanohappy@gmail.com">muyombanohappy@gmail.com</a></p>
+                <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#2c41595543414e4d4243444d5c5c556c4b414d4540024f4341"><span class="__cf_email__" data-cfemail="3d50484452505f5c5352555c4d4d447d5a505c5451135e5250">[email&#160;protected]</span></a></p>
                 <p><strong>Phone:</strong> <a href="tel:+250792437462">+250 792 437 462</a></p>
                 <p><strong>Location:</strong> Kigali, Rwanda</p>
                 <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">linkedin.com/in/muyombano-happy</a></p>
@@ -949,7 +951,7 @@
         </footer>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Modal functions
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
@@ -999,15 +1001,3 @@
                 if (scrollY >= (sectionTop - 100)) {
                     current = section.getAttribute('id');
                 }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
