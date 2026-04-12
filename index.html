@@ -93,9 +93,7 @@
         }
 
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+            to { opacity: 1; }
         }
 
         .profile-image {
@@ -443,14 +441,15 @@
         .highlight-image-container {
             position: relative;
             overflow: hidden;
+            background: #0f2027;
         }
 
+        /* object-fit: contain ensures no photo is cropped */
         .highlight-image {
             width: 100%;
             height: 250px;
             object-fit: contain;
-            background: #0f2027;
-            position: relative;
+            display: block;
         }
 
         .image-overlay {
@@ -527,13 +526,15 @@
 
         .modal-header {
             position: relative;
+            background: #0f2027;
         }
 
+        /* object-fit: contain ensures no modal photo is cropped */
         .modal-image {
             width: 100%;
             height: 400px;
             object-fit: contain;
-            background: #0f2027;
+            display: block;
         }
 
         .modal-body {
@@ -615,68 +616,38 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2em;
-            }
+            h1 { font-size: 2.2em; }
 
             nav {
                 flex-direction: column;
                 padding: 15px;
             }
 
-            nav ul li {
-                margin: 5px 15px;
-            }
+            nav ul li { margin: 5px 15px; }
+            nav ul li a { font-size: 0.9em; }
+            h2 { font-size: 1.8em; }
 
-            nav ul li a {
-                font-size: 0.9em;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
-            .timeline {
-                padding-left: 30px;
-            }
-
-            .timeline-item::before {
-                left: -37px;
-            }
+            .timeline { padding-left: 30px; }
+            .timeline-item::before { left: -37px; }
 
             .profile-image {
                 width: 150px;
                 height: 150px;
             }
 
-            .highlights-grid {
-                grid-template-columns: 1fr;
-            }
+            .highlights-grid { grid-template-columns: 1fr; }
 
             .modal-content {
                 width: 95%;
                 margin: 10% auto;
             }
 
-            .modal-image {
-                height: 250px;
-            }
+            .modal-image { height: 250px; }
+            .modal-body { padding: 25px; }
+            .modal-body h3 { font-size: 1.4em; }
+            .modal-body p { font-size: 1em; }
 
-            .modal-body {
-                padding: 25px;
-            }
-
-            .modal-body h3 {
-                font-size: 1.4em;
-            }
-
-            .modal-body p {
-                font-size: 1em;
-            }
-
-            .certification-grid {
-                grid-template-columns: 1fr;
-            }
+            .certification-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -704,7 +675,7 @@
             <div class="affiliation">MSc in Embedded Computer Systems, B.Eng Electrical and Electronics Engineering</div>
             <div class="location">Kigali</div>
             <div class="social-links">
-                <a href="/cdn-cgi/l/email-protection#91fce4e8fefcf3f0fffef9f0e1e1e8d1f6fcf0f8fdbff2fefc">Email</a>
+                <a href="mailto:muyombanohappy@gmail.com">Email</a>
                 <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">LinkedIn</a>
                 <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">ResearchGate</a>
                 <a href="https://github.com/HappyAxelo" target="_blank">GitHub</a>
@@ -732,6 +703,8 @@
         <section id="highlights">
             <h2>Highlights</h2>
             <div class="highlights-grid">
+
+                <!-- Newest highlight shown first -->
                 <div class="highlight-card" onclick="openModal('modal4')">
                     <div class="highlight-image-container">
                         <img src="tairi 5.jpeg" alt="Ministerial Visit to TAIRI Lab" class="highlight-image">
@@ -744,6 +717,7 @@
                         <p>TAIRI Lab hosted Dr. Diaka Sidibé, Minister of Higher Education of Guinea, who toured ACEIoT and explored student-led AI projects spanning health, environment, and agriculture...</p>
                     </div>
                 </div>
+
                 <div class="highlight-card" onclick="openModal('modal1')">
                     <div class="highlight-image-container">
                         <img src="IEEE-MTTS.jpg" alt="IEEE MTTS at CMU" class="highlight-image">
@@ -756,6 +730,7 @@
                         <p>The Institute of Electrical and Electronics Engineers (IEEE) Microwave Theory and Technology Society (MTTS) event at Carnegie Mellon University Africa brought together students from this prestigious engineering institution and IEEE communities worldwide...</p>
                     </div>
                 </div>
+
                 <div class="highlight-card" onclick="openModal('modal2')">
                     <div class="highlight-image-container">
                         <img src="Masters-graduation.jpg" alt="Graduating my master's degree" class="highlight-image">
@@ -768,6 +743,7 @@
                         <p>On 17th of October 2025, I celebrated a proud milestone in my journey as I graduated with my master's degree. My deepest gratitude goes to my mother for her unwavering support...</p>
                     </div>
                 </div>
+
                 <div class="highlight-card" onclick="openModal('modal3')">
                     <div class="highlight-image-container">
                         <img src="Exhibition.jpg" alt="Exhibition of our innovation" class="highlight-image">
@@ -780,10 +756,24 @@
                         <p>I had the honour of exhibiting our bird repeller technology in Uganda during the 1st Regional Ministerial Conference on the East African Common Higher Education Area (EACHEA)...</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
         <!-- Modals -->
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal('modal4')">&times;</span>
+                    <img src="tairi 5.jpeg" alt="Ministerial Visit to TAIRI Lab" class="modal-image">
+                </div>
+                <div class="modal-body">
+                    <h3>Ministerial Visit to TAIRI Lab</h3>
+                    <p>TAIRI Lab hosted Dr. Diaka Sidibé, the Minister of Higher Education, Scientific Research and Innovation of the Republic of Guinea, during her visit to the University of Rwanda. She toured ACEIoT and explored student-led AI projects at the lab. Students are currently conducting ethically approved data collection across five AI initiatives spanning health, environment, and agriculture. The visit underscored the vital role of research, cross-border collaboration, and innovation in driving Africa's development through AI for Development (AI4D).</p>
+                </div>
+            </div>
+        </div>
+
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -823,19 +813,6 @@
             </div>
         </div>
 
-        <div id="modal4" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close" onclick="closeModal('modal4')">&times;</span>
-                    <img src="tairi 5.jpeg" alt="Ministerial Visit to TAIRI Lab" class="modal-image">
-                </div>
-                <div class="modal-body">
-                    <h3>Ministerial Visit to TAIRI Lab</h3>
-                    <p>TAIRI Lab hosted Dr. Diaka Sidibé, the Minister of Higher Education, Scientific Research and Innovation of the Republic of Guinea, during her visit to the University of Rwanda. She toured ACEIoT and explored student-led AI projects at the lab. Students are currently conducting ethically approved data collection across five AI initiatives spanning health, environment, and agriculture. The visit underscored the vital role of research, cross-border collaboration, and innovation in driving Africa's development through AI for Development (AI4D).</p>
-                </div>
-            </div>
-        </div>
-
         <section id="education">
             <h2>Education</h2>
             <div class="timeline">
@@ -853,8 +830,9 @@
 
         <section id="experience">
             <h2>Work Experience</h2>
+            <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Database Administrator/ Research  Associate</h3>
+                    <h3>Database Administrator / Research Associate</h3>
                     <div class="period">May 2025 - Present</div>
                     <p>Transformative AI Research and Innovation Lab, University of Rwanda</p>
                     <p>Managed database systems and supported research initiatives in AI, machine learning, and embedded systems with focus on social impact applications.</p>
@@ -862,7 +840,7 @@
                 <div class="timeline-item">
                     <h3>Co-Principal Investigator</h3>
                     <div class="period">November 2025 - Present</div>
-                    <p>NCST Funded Project | University of Rwanda & University of Malawi</p>
+                    <p>NCST Funded Project | University of Rwanda &amp; University of Malawi</p>
                     <p><strong>Project Title:</strong> AI-Driven Machine Vision for Quality Control and Waste Reduction in Small-Scale Food Processing Manufacturing in Rwanda and Malawi</p>
                 </div>
                 <div class="timeline-item">
@@ -871,6 +849,7 @@
                     <p>Ampere Vision Rwanda Ltd</p>
                     <p>Delivered an operational machine-vision agricultural drone project. Worked closely with the Ministry of Agriculture, Rwanda Biomedical Centre, and Rwanda Civil Aviation Authority to ensure that this 10 Litre sprayer drone can impact agriculture through pesticide spraying and spraying in mosquito breeding grounds.</p>
                 </div>
+            </div>
         </section>
 
         <section id="certifications">
@@ -939,11 +918,12 @@
         <section id="contact">
             <h2>Contact</h2>
             <div class="contact-info">
-                <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#2c41595543414e4d4243444d5c5c556c4b414d4540024f4341"><span class="__cf_email__" data-cfemail="3d50484452505f5c5352555c4d4d447d5a505c5451135e5250">[email&#160;protected]</span></a></p>
+                <p><strong>Email:</strong> <a href="mailto:muyombanohappy@gmail.com">muyombanohappy@gmail.com</a></p>
                 <p><strong>Phone:</strong> <a href="tel:+250792437462">+250 792 437 462</a></p>
                 <p><strong>Location:</strong> Kigali, Rwanda</p>
                 <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/muyombano-happy/" target="_blank">linkedin.com/in/muyombano-happy</a></p>
-                <p><strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">researchgate.net/profile/Muyombano-Axel</a></div>
+                <p><strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Muyombano-Axel" target="_blank">researchgate.net/profile/Muyombano-Axel</a></p>
+            </div>
         </section>
 
         <footer>
@@ -951,7 +931,7 @@
         </footer>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Modal functions
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
@@ -997,7 +977,18 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (scrollY >= (sectionTop - 100)) {
                     current = section.getAttribute('id');
                 }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
